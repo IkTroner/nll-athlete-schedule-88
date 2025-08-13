@@ -135,6 +135,11 @@ export function AthleteForm() {
         description: `${data.athleteName} - ${data.interviewDate} às ${data.interviewTime}`,
       });
       
+      // Redirecionar para página de obrigado após sucesso
+      setTimeout(() => {
+        window.location.href = '/obrigado';
+      }, 1500);
+      
       // Reset apenas após sucesso do webhook
       reset();
       setCurrentStep(1);
@@ -145,6 +150,11 @@ export function AthleteForm() {
         description: `${data.athleteName} - ${data.interviewDate} às ${data.interviewTime}. Erro ao conectar com o sistema.`,
         variant: "destructive",
       });
+      
+      // Redirecionar para página de obrigado mesmo com erro
+      setTimeout(() => {
+        window.location.href = '/obrigado';
+      }, 2000);
       
       // Reset mesmo com erro
       reset();
