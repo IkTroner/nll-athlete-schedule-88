@@ -1,0 +1,162 @@
+import type { Config } from "tailwindcss";
+
+export default {
+	darkMode: ["class"],
+	content: [
+		"./pages/**/*.{ts,tsx}",
+		"./components/**/*.{ts,tsx}",
+		"./app/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}",
+	],
+	prefix: "",
+	theme: {
+		container: {
+			center: true,
+			padding: '2rem',
+			screens: {
+				'2xl': '1400px'
+			}
+		},
+		extend: {
+			colors: {
+				border: 'hsl(var(--border))',
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
+				background: 'hsl(var(--background))',
+				foreground: 'hsl(var(--foreground))',
+				primary: {
+					DEFAULT: 'hsl(var(--primary))',
+					foreground: 'hsl(var(--primary-foreground))'
+				},
+				secondary: {
+					DEFAULT: 'hsl(var(--secondary))',
+					foreground: 'hsl(var(--secondary-foreground))'
+				},
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))'
+				},
+				muted: {
+					DEFAULT: 'hsl(var(--muted))',
+					foreground: 'hsl(var(--muted-foreground))'
+				},
+				accent: {
+					DEFAULT: 'hsl(var(--accent))',
+					foreground: 'hsl(var(--accent-foreground))'
+				},
+				popover: {
+					DEFAULT: 'hsl(var(--popover))',
+					foreground: 'hsl(var(--popover-foreground))'
+				},
+				card: {
+					DEFAULT: 'hsl(var(--card))',
+					foreground: 'hsl(var(--card-foreground))'
+				},
+				// NLL Custom colors
+				gold: {
+					DEFAULT: 'hsl(var(--gold))',
+					bright: 'hsl(var(--gold-bright))'
+				},
+				navy: {
+					DEFAULT: 'hsl(var(--navy))',
+					deep: 'hsl(var(--navy-deep))'
+				},
+				burgundy: 'hsl(var(--burgundy))',
+				'blue-accent': 'hsl(var(--blue-accent))',
+				sidebar: {
+					DEFAULT: 'hsl(var(--sidebar-background))',
+					foreground: 'hsl(var(--sidebar-foreground))',
+					primary: 'hsl(var(--sidebar-primary))',
+					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+					accent: 'hsl(var(--sidebar-accent))',
+					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+					border: 'hsl(var(--sidebar-border))',
+					ring: 'hsl(var(--sidebar-ring))'
+				}
+			},
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				'orbitron': ['Orbitron', 'sans-serif'],
+				'rajdhani': ['Rajdhani', 'sans-serif'],
+			},
+			keyframes: {
+				'accordion-down': {
+					from: {
+						height: '0'
+					},
+					to: {
+						height: 'var(--radix-accordion-content-height)'
+					}
+				},
+				'accordion-up': {
+					from: {
+						height: 'var(--radix-accordion-content-height)'
+					},
+					to: {
+						height: '0'
+					}
+				},
+				'gold-glow': {
+					'0%': {
+						boxShadow: '0 0 5px hsl(var(--gold) / 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 20px hsl(var(--gold) / 0.6), 0 0 30px hsl(var(--gold) / 0.4)'
+					},
+					'100%': {
+						boxShadow: '0 0 5px hsl(var(--gold) / 0.3)'
+					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'bounce-ball': {
+					'0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+					'50%': { transform: 'translateY(-20px) rotate(180deg)' }
+				},
+				'slide-in-up': {
+					'0%': { transform: 'translateY(100%)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'pulse-field': {
+					'0%, 100%': { boxShadow: '0 0 0 0 hsl(120 60% 50% / 0.4)' },
+					'50%': { boxShadow: '0 0 0 10px hsl(120 60% 50% / 0)' }
+				},
+				'grass-wave': {
+					'0%': { backgroundPosition: '0% 0%' },
+					'100%': { backgroundPosition: '100% 0%' }
+				}
+			},
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'gold-glow': 'gold-glow 2s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
+				'bounce-ball': 'bounce-ball 2s ease-in-out infinite',
+				'slide-in-up': 'slide-in-up 0.6s ease-out',
+				'pulse-field': 'pulse-field 2s ease-in-out infinite',
+				'grass-wave': 'grass-wave 8s linear infinite'
+			},
+			backgroundImage: {
+				'gradient-main': 'var(--gradient-main)',
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-field': 'var(--gradient-field)',
+				'gradient-grass': 'var(--gradient-grass)',
+				'gradient-stadium': 'var(--gradient-stadium)'
+			},
+			boxShadow: {
+				'gold-glow': 'var(--glow-gold)',
+				'blue-glow': 'var(--glow-blue)',
+				'field-glow': 'var(--glow-field)',
+				'stadium': 'var(--shadow-stadium)'
+			}
+		}
+	},
+	plugins: [require("tailwindcss-animate")],
+} satisfies Config;

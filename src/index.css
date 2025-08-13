@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* NLL Theme - Dark esports style */
+    --background: 220 100% 4%;
+    --foreground: 45 100% 85%;
+
+    --card: 220 100% 6%;
+    --card-foreground: 45 100% 85%;
+
+    --popover: 220 100% 8%;
+    --popover-foreground: 45 100% 85%;
+
+    --primary: 45 100% 70%;
+    --primary-foreground: 220 100% 4%;
+
+    --secondary: 220 100% 10%;
+    --secondary-foreground: 45 100% 85%;
+
+    --muted: 220 50% 15%;
+    --muted-foreground: 45 20% 60%;
+
+    --accent: 220 100% 50%;
+    --accent-foreground: 45 100% 85%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 100% 95%;
+
+    --border: 220 50% 20%;
+    --input: 220 50% 12%;
+    --ring: 45 100% 70%;
+
+    /* NLL Custom tokens */
+    --gold: 45 100% 70%;
+    --gold-bright: 45 100% 80%;
+    --navy: 220 100% 10%;
+    --navy-deep: 220 100% 4%;
+    --burgundy: 350 70% 40%;
+    --blue-accent: 220 100% 50%;
+    
+    /* Gradients */
+    --gradient-main: linear-gradient(135deg, hsl(var(--navy-deep)), hsl(var(--navy)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-bright)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--navy)) 0%, hsl(var(--navy-deep)) 100%);
+    --gradient-field: linear-gradient(135deg, hsl(120 60% 20%), hsl(120 40% 15%));
+    
+    /* Football themed gradients */
+    --gradient-grass: linear-gradient(90deg, 
+      hsl(120 60% 18%) 0%, 
+      hsl(120 70% 22%) 20%, 
+      hsl(120 50% 16%) 40%, 
+      hsl(120 65% 20%) 60%, 
+      hsl(120 55% 18%) 80%, 
+      hsl(120 70% 22%) 100%);
+    --gradient-stadium: radial-gradient(ellipse at center, hsl(var(--navy)) 0%, hsl(var(--navy-deep)) 70%);
+    
+    /* Glows and effects */
+    --glow-gold: 0 0 20px hsl(var(--gold) / 0.3);
+    --glow-blue: 0 0 15px hsl(var(--blue-accent) / 0.4);
+    --glow-field: 0 0 25px hsl(120 60% 50% / 0.2);
+    --shadow-stadium: 0 25px 50px -12px hsl(var(--navy-deep) / 0.8);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes grass-sway {
+  0%, 100% { transform: skewX(0deg); }
+  25% { transform: skewX(-1deg); }
+  75% { transform: skewX(1deg); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes pulse-field {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.05); }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-grass-sway {
+  animation: grass-sway 3s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.animate-pulse-field {
+  animation: pulse-field 2s ease-in-out infinite;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.6s ease-out;
+}
