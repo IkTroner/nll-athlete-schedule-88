@@ -238,6 +238,9 @@ export function AthleteForm() {
             <p className="text-sm md:text-lg text-muted-foreground max-w-md mx-auto font-medium">
               Cadastro para Entrevista de Seleção
             </p>
+            <p className="text-xs md:text-sm text-gold/80 max-w-lg mx-auto font-medium leading-relaxed">
+              A maior edição da nossa história. Venha competir pelo título de Campeão Nacional.
+            </p>
             <div className="flex justify-center items-center gap-3 text-gold text-sm md:text-base font-medium">
               <Trophy className="w-4 h-4 md:w-5 md:h-5" />
               <span>CAMPEÃO NACIONAL</span>
@@ -306,6 +309,9 @@ export function AthleteForm() {
                           <User className="w-4 h-4 text-gold" />
                           Nome Completo do Atleta
                         </Label>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Digite seu nome completo, conforme o documento oficial.
+                        </p>
                         <Input
                           id="athleteName"
                           {...register("athleteName")}
@@ -325,6 +331,9 @@ export function AthleteForm() {
                           <Phone className="w-4 h-4 text-gold" />
                           Telefone do Atleta
                         </Label>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Informe um número de telefone com DDD, preferencialmente WhatsApp.
+                        </p>
                         <Input
                           id="athletePhone"
                           {...register("athletePhone")}
@@ -353,6 +362,9 @@ export function AthleteForm() {
                           <UserCheck className="w-4 h-4 text-gold" />
                           Nome do Responsável
                         </Label>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Nome completo do pai, mãe ou tutor legal.
+                        </p>
                         <Input
                           id="guardianName"
                           {...register("guardianName")}
@@ -372,6 +384,9 @@ export function AthleteForm() {
                           <Phone className="w-4 h-4 text-gold" />
                           Telefone do Responsável
                         </Label>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Telefone de contato do responsável, com DDD.
+                        </p>
                         <Input
                           id="guardianPhone"
                           {...register("guardianPhone")}
@@ -400,6 +415,9 @@ export function AthleteForm() {
                           <CalendarDays className="w-4 h-4 text-gold" />
                           Quando será a entrevista?
                         </Label>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Selecione o dia de sua preferência para a entrevista.
+                        </p>
                         <RadioGroup
                           onValueChange={(value) => setValue("interviewDate", value as "hoje" | "amanha")}
                           className="grid grid-cols-2 gap-3"
@@ -447,6 +465,9 @@ export function AthleteForm() {
                           <Users className="w-4 h-4 text-gold" />
                           Quem irá participar da entrevista?
                         </Label>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Selecione todos que estarão presentes.
+                        </p>
                         <Select onValueChange={(value) => setValue("participants", value as any)}>
                           <SelectTrigger className="bg-input/80 border-border focus:border-gold focus:ring-gold transition-all duration-300 text-base h-12">
                             <SelectValue placeholder="Selecione os participantes" />
@@ -475,6 +496,9 @@ export function AthleteForm() {
                           <Timer className="w-4 h-4 text-gold" />
                           Horário da Entrevista
                         </Label>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Selecione o melhor horário disponível.
+                        </p>
                         <Select onValueChange={(value) => setValue("interviewTime", value)}>
                           <SelectTrigger className="bg-input/80 border-border focus:border-gold focus:ring-gold transition-all duration-300 text-base h-12">
                             <SelectValue placeholder="Selecione o horário" />
@@ -546,7 +570,7 @@ export function AthleteForm() {
                         ) : (
                           <span className="flex items-center gap-2">
                             <Trophy className="w-5 h-5" />
-                            Finalizar Cadastro
+                            Finalizar Cadastro e Confirmar Entrevista
                           </span>
                         )}
                       </Button>
